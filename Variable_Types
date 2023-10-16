@@ -1,0 +1,42 @@
+<?php
+// Integer
+$integerVar = 42;
+
+// Float (floating-point numbers)
+$floatVar = 3.14159;
+
+// String
+$stringVar = "Hello, World!";
+
+// Boolean
+$boolVar = true;
+
+// Array
+$arrayVar = array(1, 2, 3, "apple", "banana");
+
+// Object
+class MyClass {
+    public $property1 = "I'm a property!";
+    public function myMethod() {
+        return "I'm a method!";
+    }
+}
+$objectVar = new MyClass();
+
+// NULL
+$nullVar = null;
+
+echo "Integer: $integerVar<br>";
+echo "Float: $floatVar<br>";
+echo "String: $stringVar<br>";
+echo "Boolean: " . ($boolVar ? 'true' : 'false') . "<br>";
+
+echo "Array: ";
+print_r($arrayVar);
+echo "<br>";
+
+echo "Object Property: " . $objectVar->property1 . "<br>";
+echo "Object Method: " . $objectVar->myMethod() . "<br>";
+
+echo "NULL: " . var_dump($nullVar) . "<br>";
+?>
