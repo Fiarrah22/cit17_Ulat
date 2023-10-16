@@ -1,0 +1,24 @@
+<?php
+// Single-line comment
+echo "Hello, world!"; // This is also a single-line comment
+
+/*
+Multi-line comment:
+This is a simple PHP script that demonstrates
+single-line comments, multi-line printing, and multi-line comments.
+*/
+
+echo "<br>"; // Add a line break for clarity
+
+// Multi-line printing
+echo "This is line 1<br>";
+echo "This is line 2<br>";
+echo "This is line 3<br>";
+
+/*
+Another multi-line comment:
+You can use multi-line comments to provide explanations or
+to comment out sections of your code.
+*/
+
+?>
