@@ -1,0 +1,25 @@
+<?php
+// Define constants
+define("PI", 3.14159);
+define("GREETING", "Hello, World!");
+
+// Using constants
+echo "The value of PI is " . PI . "<br>";
+echo GREETING;
+
+// Constants are case-sensitive by default
+define("myConstant", "This is a case-sensitive constant");
+echo myConstant; // This works
+
+// Constants are typically written in uppercase
+define("MY_CONSTANT", "This is an uppercase constant");
+echo MY_CONSTANT; // This is the convention
+
+// Constants can be used in functions
+function exampleFunction() {
+    echo "The value of PI inside the function is " . PI . "<br>";
+}
+
+exampleFunction();
+
+?>
