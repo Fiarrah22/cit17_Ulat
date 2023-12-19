@@ -1,0 +1,65 @@
+<?php
+// Replace 'your_last_name' with your actual last name for database identification
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "StudentInformationSystem";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Create database
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+if ($conn->query($sql) === TRUE) {
+    echo "Database created successfully";
+} else {
+    echo "Error creating database: " . $conn->error;
+}
+
+// Select the created database
+$conn->select_db($dbname);
+
+// Create tables
+$sql_users = "CREATE TABLE Users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    role ENUM('admin', 'student', 'instructor') NOT NULL
+)";
+
+$sql_student = "CREATE TABLE Student (
+    student_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(6) UNSIGNED,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    dob DATE,
+    // Other fields related to student information
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+)";
+
+// Create Course, Instructor, and Enrollment tables similarly...
+
+// Execute SQL queries
+if ($conn->query($sql_users) === TRUE) {
+    echo "Table Users created successfully";
+} else {
+    echo "Error creating table Users: " . $conn->error;
+}
+
+if ($conn->query($sql_student) === TRUE) {
+    echo "Table Student created successfully";
+} else {
+    echo "Error creating table Student: " . $conn->error;
+}
+
+// Create Course, Instructor, and Enrollment tables similarly...
+
+// Close connection
+$conn->close();
+?>
